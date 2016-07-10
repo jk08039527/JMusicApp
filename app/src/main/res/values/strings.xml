@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">PagerSlidingTabStrip</string>
+    <string name="action_contact">收藏</string>
+    <string name="action_resent">最近播放</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="random_play">随机播放</string>
+    <string name="order_play">列表循环</string>
+    <string name="single_play">单曲循环</string>
+    <string name="fav_success">收藏成功</string>
+    <string name="fav_cancle">取消收藏</string>
+    <string name="myLike">我喜欢的</string>
+    <string name="noMusic">该歌曲列表为空</string>
+    <string name="download">下载</string>
+    <string name="cancel">取消</string>
+    <string name="downloading">正在下载</string>
+    <string name="download_success">下载成功</string>
+    <string name="download_failed">下载失败</string>
+    <string name="play">播放</string>
+
+</resources>
