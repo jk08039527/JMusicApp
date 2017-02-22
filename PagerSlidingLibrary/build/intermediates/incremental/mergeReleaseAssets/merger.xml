@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="F:\test\MusicApp\PagerSlidingLibrary\src\main\assets"/></dataSet><dataSet config="release"><source path="F:\test\MusicApp\PagerSlidingLibrary\src\release\assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/Users/wzl-pc/Androidpro/fws/JMusicApp/PagerSlidingLibrary/src/main/assets"/><source path="/Users/wzl-pc/Androidpro/fws/JMusicApp/PagerSlidingLibrary/build/generated/assets/shaders/release"/></dataSet><dataSet config="release"><source path="/Users/wzl-pc/Androidpro/fws/JMusicApp/PagerSlidingLibrary/src/release/assets"/></dataSet></merger>

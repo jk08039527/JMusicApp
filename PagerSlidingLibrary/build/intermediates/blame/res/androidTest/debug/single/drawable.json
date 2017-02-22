@@ -1,6 +1,10 @@
 [
     {
-        "merged": "F:\\test\\MusicApp\\PagerSlidingLibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\background_tab.xml",
-        "source": "F:\\test\\MusicApp\\PagerSlidingLibrary\\build\\intermediates\\bundles\\debug\\res\\drawable\\background_tab.xml"
+        "merged": "/Users/wzl-pc/Androidpro/fws/JMusicApp/PagerSlidingLibrary/build/intermediates/res/merged/androidTest/debug/drawable/background_tab.xml",
+        "source": "/Users/wzl-pc/Androidpro/fws/JMusicApp/PagerSlidingLibrary/build/intermediates/bundles/debug/res/drawable/background_tab.xml"
+    },
+    {
+        "merged": "/Users/wzl-pc/Androidpro/fws/tinker/Jmu/PagerSlidingLibrary/build/intermediates/res/merged/androidTest/debug/drawable/background_tab.xml",
+        "source": "/Users/wzl-pc/Androidpro/fws/tinker/Jmu/PagerSlidingLibrary/build/intermediates/bundles/debug/res/drawable/background_tab.xml"
     }
 ]
