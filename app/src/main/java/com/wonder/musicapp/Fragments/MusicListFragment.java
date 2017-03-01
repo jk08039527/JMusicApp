@@ -76,6 +76,10 @@ public class MusicListFragment extends Fragment implements AdapterView.OnItemCli
                 activity.playService.prev(activity.playService.getCurrentPosition());
                 break;
             case R.id.iv_play:
+                if (mp3Infos==null||mp3Infos.size()==0){
+                    Toast.makeText(getActivity(), getString(R.string.noMusic), Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 if (activity.playService.isPlaying()) {
                     iv_play.setImageResource(R.mipmap.play);
                     activity.playService.pause();

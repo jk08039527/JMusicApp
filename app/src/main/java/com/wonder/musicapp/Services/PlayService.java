@@ -5,9 +5,11 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Binder;
 import android.os.IBinder;
+import android.widget.Toast;
 
 import com.wonder.musicapp.Entitys.Mp3Info;
 import com.wonder.musicapp.JerryPlayerApplication;
+import com.wonder.musicapp.R;
 import com.wonder.musicapp.Utils.MediaUtil;
 
 import java.io.IOException;
@@ -172,6 +174,10 @@ public class PlayService extends Service implements MediaPlayer.OnCompletionList
 
     //上一首
     public void prev(int position) {
+        if (mp3Infos==null||mp3Infos.size()==0){
+            Toast.makeText(this, getString(R.string.noMusic), Toast.LENGTH_SHORT).show();
+            return;
+        }
         if (currentPosition == 0) {
             currentPosition = mp3Infos.size() - 1;
         } else {
@@ -182,6 +188,10 @@ public class PlayService extends Service implements MediaPlayer.OnCompletionList
 
     //下一首
     public void next() {
+        if (mp3Infos==null||mp3Infos.size()==0){
+            Toast.makeText(this, getString(R.string.noMusic), Toast.LENGTH_SHORT).show();
+            return;
+        }
         if (currentPosition == mp3Infos.size() - 1) {
             currentPosition = 0;
         } else {

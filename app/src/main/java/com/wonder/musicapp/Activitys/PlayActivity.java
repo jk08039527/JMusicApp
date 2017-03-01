@@ -20,6 +20,7 @@ import com.wonder.musicapp.Services.PlayService;
 import com.wonder.musicapp.Utils.MediaUtil;
 
 import java.lang.ref.WeakReference;
+import java.util.ArrayList;
 
 public class PlayActivity extends BaseActivity implements View.OnClickListener,
         SeekBar.OnSeekBarChangeListener {
@@ -67,6 +68,11 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener,
                 this.playService.prev(this.playService.getCurrentPosition());
                 break;
             case R.id.iv_play:
+                ArrayList<Mp3Info> mp3Infos = playService.getMp3Infos();
+                if (mp3Infos==null||mp3Infos.size()==0){
+                    Toast.makeText(this, getString(R.string.noMusic), Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 if (this.playService.isPlaying()) {
                     iv_play.setImageResource(R.mipmap.play);
                     this.playService.pause();
@@ -88,26 +94,30 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener,
                 startActivity(new Intent(this, PlayActivity.class));
                 break;
             case R.id.iv_mode:
-                int mode = (int) iv_mode.getTag();
-                switch (mode) {
-                    case PlayService.ORDER_PLAY:
-                        iv_mode.setImageResource(R.mipmap.random);
-                        iv_mode.setTag(PlayService.RANDOM_PLAY);
-                        playService.setPlayMode(PlayService.RANDOM_PLAY);
-                        Toast.makeText(PlayActivity.this, getString(R.string.random_play), Toast.LENGTH_SHORT).show();
-                        break;
-                    case PlayService.RANDOM_PLAY:
-                        iv_mode.setImageResource(R.mipmap.single);
-                        iv_mode.setTag(PlayService.SINGLE_PLAY);
-                        playService.setPlayMode(PlayService.SINGLE_PLAY);
-                        Toast.makeText(PlayActivity.this, getString(R.string.single_play), Toast.LENGTH_SHORT).show();
-                        break;
-                    case PlayService.SINGLE_PLAY:
-                        iv_mode.setImageResource(R.mipmap.order);
-                        iv_mode.setTag(PlayService.ORDER_PLAY);
-                        playService.setPlayMode(PlayService.ORDER_PLAY);
-                        Toast.makeText(PlayActivity.this, getString(R.string.order_play), Toast.LENGTH_SHORT).show();
-                        break;
+                try {
+                    int mode = (int) iv_mode.getTag();
+                    switch (mode) {
+                        case PlayService.ORDER_PLAY:
+                            iv_mode.setImageResource(R.mipmap.random);
+                            iv_mode.setTag(PlayService.RANDOM_PLAY);
+                            playService.setPlayMode(PlayService.RANDOM_PLAY);
+                            Toast.makeText(PlayActivity.this, getString(R.string.random_play), Toast.LENGTH_SHORT).show();
+                            break;
+                        case PlayService.RANDOM_PLAY:
+                            iv_mode.setImageResource(R.mipmap.single);
+                            iv_mode.setTag(PlayService.SINGLE_PLAY);
+                            playService.setPlayMode(PlayService.SINGLE_PLAY);
+                            Toast.makeText(PlayActivity.this, getString(R.string.single_play), Toast.LENGTH_SHORT).show();
+                            break;
+                        case PlayService.SINGLE_PLAY:
+                            iv_mode.setImageResource(R.mipmap.order);
+                            iv_mode.setTag(PlayService.ORDER_PLAY);
+                            playService.setPlayMode(PlayService.ORDER_PLAY);
+                            Toast.makeText(PlayActivity.this, getString(R.string.order_play), Toast.LENGTH_SHORT).show();
+                            break;
+                    }
+                }catch (Exception e){
+
                 }
                 break;
             case R.id.iv_favorite:
@@ -149,7 +159,10 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener,
     @Override
     public void change(int position) {
 //        if (playService.isPlaying()) {}
-        Mp3Info mp3Info = playService.getMp3Infos().get(position);
+        ArrayList<Mp3Info> mp3Infos = playService.getMp3Infos();
+        if (mp3Infos==null||mp3Infos.size() == 0)
+            return;
+        Mp3Info mp3Info = mp3Infos.get(position);
         tv_song.setText(mp3Info.getTitle());
         Bitmap bitmap = MediaUtil.getArtwork(this, mp3Info.getId(), mp3Info.getAlbumId(), true, true);
         iv_album.setImageBitmap(bitmap);

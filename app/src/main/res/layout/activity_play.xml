@@ -67,12 +67,12 @@
         android:id="@+id/llayout"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
         android:background="@mipmap/bottom"
         android:orientation="horizontal"
         android:padding="10dp"
-        android:weightSum="1">
+        android:weightSum="1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
 
         <ImageView
             android:id="@+id/iv_mode"
